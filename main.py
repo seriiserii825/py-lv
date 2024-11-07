@@ -10,6 +10,10 @@ from modules.request import requestFunc
 from modules.resourceFunc import resourceFunc
 from rich import print
 
+## check for laravel project
+if not os.path.exists("artisan"):
+    print("[red]This is not a laravel project")
+    exit()
 
 def menu():
     print("[green]1. Routes")
