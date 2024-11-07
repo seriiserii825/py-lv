@@ -1,6 +1,9 @@
 import os
 
 from modules.composer import composer
+from modules.controller import controller
+from modules.migration import migration
+from modules.model import model
 
 
 def menu():
@@ -24,6 +27,11 @@ def menu():
         print(command)
     elif option == "2":
         composer()
-
+    elif option == "3":
+        migration()
+    elif option == "4":
+        model()
+    elif option == "5":
+        controller()
 if __name__ == "__main__":
     menu()
