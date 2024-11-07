@@ -1,4 +1,5 @@
 import os
+from rich import print
 
 
 def model():
@@ -9,13 +10,11 @@ def model():
     print("[green]5. Model_factory_migrationSeeder")
     print("[blue]6. Model_migration_controller_resource")
     print("[green]7. Model_migration_factory_controller_resource")
-    print("[red]8. Exit")
+    print("[yellow]8. Back")
+    print("[red]9. Exit")
 
     option = input("Select an option: ")
-    if option == '' or option == '8':
-        print("[red]Good bye!")
-        exit()
-    elif option == '1':
+    if option == '1':
         model_name = input("Model name like 'Flight': ")
         os.system(f"docker-compose exec php-fpm php artisan make:model {model_name}")
     elif option == '2':
@@ -36,5 +35,11 @@ def model():
     elif option == '7':
         model_name = input("Model name like 'Flight': ")
         os.system(f"docker-compose exec php-fpm php artisan make:model {model_name} -mfcr")
-    else:
+    elif option == '8':
+        return True
+    elif option == '9':
+        print("[red]Good bye!")
         exit()
+    else:
+        print("[red]Invalid option")
+        model()

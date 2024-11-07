@@ -1,4 +1,5 @@
 import os
+from rich import print
 
 
 def resourceFunc():
@@ -6,4 +7,4 @@ def resourceFunc():
     resource_name = input("Enter resource name: ")
     os.system(f"docker-compose exec php-fpm php artisan make:resource {resource_name}Resource")
     print("[green]Resource created successfully!")
-    return
+    return True

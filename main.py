@@ -8,6 +8,7 @@ from modules.migration import migration
 from modules.model import model
 from modules.request import requestFunc
 from modules.resourceFunc import resourceFunc
+from rich import print
 
 
 def menu():
@@ -23,30 +24,39 @@ def menu():
     print("[red]10. Exit")
 
     option = input("Select an option: ")
-    if option == "" or option == "10":
-        print("[red]Good bye!")
-        exit()
-    elif option == "1":
+    if option == "1":
         command = os.system("docker-compose exec php-fpm php artisan route:list")
         print(command)
+        menu()
     elif option == "2":
         composer()
+        menu()
     elif option == "3":
         migration()
+        menu()
     elif option == "4":
         model()
+        menu()
     elif option == "5":
         controller()
+        menu()
     elif option == "6":
         requestFunc()
+        menu()
     elif option == "7":
         resourceFunc()
+        menu()
     elif option == "8":
         middlewareFunc()
+        menu()
     elif option == "9":
         artisan()
-    else:
+        menu()
+    elif option == "10":
         print("[red]Good bye!")
         exit()
+    else:
+        print("[red]Invalid option")
+        menu()
 if __name__ == "__main__":
     menu()
