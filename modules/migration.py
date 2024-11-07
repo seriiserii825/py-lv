@@ -4,16 +4,17 @@ from rich import print
 
 def migration():
     print("[green]1. Creat_migration")
-    print("[blue]2. Create_migration_with_table")
-    print("[green]3. Run_migration")
-    print("[blue]4. Create_seeder")
-    print("[green]5. Seed")
-    print("[blue]6. Create_factory")
-    print("[green]7. Fresh_seed")
+    print("[green]2. Create_migration_with_table")
+    print("[blue]3. Run_migration")
+    print("[green]4. Create_seeder")
+    print("[blue]5. Seed")
+    print("[green]6. Create_factory")
+    print("[blue]7. Fresh_seed")
+    print("[blue]7.1. Fresh(drop tables and re-run all migrations)")
     print("[blue]8. Rollback")
-    print("[green]9. Rollback_step")
-    print("[blue]10. Reset")
-    print("[green]11. Clear")
+    print("[blue]9. Rollback_step")
+    print("[red]10. Reset")
+    print("[blue]11. Clear")
     print("[yellow]12. Back")
     print("[red]13. Exit")
     
@@ -46,6 +47,9 @@ def migration():
         migration()
     elif option == '7':
         os.system("docker-compose exec php-fpm php artisan migrate:fresh --seed")
+        migration()
+    elif option == '7.1':
+        os.system("docker-compose exec php-fpm php artisan migrate:fresh")
         migration()
     elif option == '8':
         os.system("docker-compose exec php-fpm php artisan migrate:rollback")
