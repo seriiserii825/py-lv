@@ -1,9 +1,13 @@
 import os
 
+from modules.artisan import artisan
 from modules.composer import composer
 from modules.controller import controller
+from modules.middlewareFunc import middlewareFunc
 from modules.migration import migration
 from modules.model import model
+from modules.request import requestFunc
+from modules.resourceFunc import resourceFunc
 
 
 def menu():
@@ -33,5 +37,16 @@ def menu():
         model()
     elif option == "5":
         controller()
+    elif option == "6":
+        requestFunc()
+    elif option == "7":
+        resourceFunc()
+    elif option == "8":
+        middlewareFunc()
+    elif option == "9":
+        artisan()
+    else:
+        print("[red]Good bye!")
+        exit()
 if __name__ == "__main__":
     menu()
