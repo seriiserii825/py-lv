@@ -26,8 +26,9 @@ def menu():
     print("[green]7. Resource")
     print("[blue]8. Middleware")
     print("[green]9. Artisan")
-    print("[green]10. Docker")
-    print("[red]11. Exit")
+    print("[blue]10. Docker")
+    print("[green]11. Clear")
+    print("[red]12. Exit")
 
     option = input("Select an option: ")
     if option == "1":
@@ -62,6 +63,9 @@ def menu():
         dockerFunc()
         menu()
     elif option == "11":
+        os.system("docker-compose exec php-fpm php artisan view:clear && docker-compose exec php-fpm php artisan cache:clear && docker-compose exec php-fpm php artisan config:cache && docker-compose exec php-fpm php artisan route:clear")
+        menu()
+    elif option == "12":
         print("[red]Good bye!")
         exit()
     else:

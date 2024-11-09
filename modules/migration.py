@@ -14,9 +14,8 @@ def migration():
     print("[blue]8. Rollback")
     print("[blue]9. Rollback_step")
     print("[red]10. Reset")
-    print("[blue]11. Clear")
-    print("[yellow]12. Back")
-    print("[red]13. Exit")
+    print("[yellow]11. Back")
+    print("[red]12. Exit")
     
     option = input("Select an option: ")
     if option == '':
@@ -62,11 +61,8 @@ def migration():
         os.system("docker-compose exec php-fpm php artisan migrate:reset")
         migration()
     elif option == '11':
-        os.system("docker-compose exec php-fpm php artisan view:clear && docker-compose exec php-fpm php artisan cache:clear && docker-compose exec php-fpm php artisan config:cache && docker-compose exec php-fpm php artisan route:clear")
-        migration()
-    elif option == '12':
         return True
-    elif option == '13':
+    elif option == '12':
         print("[red]Good bye!")
         exit()
     else:
