@@ -3,6 +3,7 @@ import os
 from modules.artisan import artisan
 from modules.composer import composer
 from modules.controller import controller
+from modules.dockerFunc import dockerFunc
 from modules.middlewareFunc import middlewareFunc
 from modules.migration import migration
 from modules.model import model
@@ -25,7 +26,8 @@ def menu():
     print("[green]7. Resource")
     print("[blue]8. Middleware")
     print("[green]9. Artisan")
-    print("[red]10. Exit")
+    print("[green]10. Docker")
+    print("[red]11. Exit")
 
     option = input("Select an option: ")
     if option == "1":
@@ -57,6 +59,9 @@ def menu():
         artisan()
         menu()
     elif option == "10":
+        dockerFunc()
+        menu()
+    elif option == "11":
         print("[red]Good bye!")
         exit()
     else:
