@@ -15,15 +15,15 @@ def requestFunc():
         request_name = input("Enter request name like 'Worker': ")
         os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/StoreRequest")
         os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/UpdateRequest")
-    elif option == 2:
+    elif option == '2':
         request_name = input("Enter request name like 'Worker': ")
         os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/StoreRequest")
-    elif option == 3:
+    elif option == '2':
         request_name = input("Enter request name like 'Worker': ")
         os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/UpdateRequest")
-    elif option == 4:
+    elif option == '2':
         return True
-    elif option == 5:
+    elif option == '2':
         print("[red]Good bye!")
         exit()
     else:
