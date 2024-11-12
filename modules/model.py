@@ -5,6 +5,7 @@ from rich import print
 def model():
     print("[green]1. Create_model")
     print("[blue]2. Model_migration")
+    print("[blue]2.1. Model_migration_seeder")
     print("[green]3. Model_factory")
     print("[blue]4. Model_factory_migration")
     print("[green]5. Model_factory_migrationSeeder")
@@ -20,6 +21,9 @@ def model():
     elif option == '2':
         model_name = input("Model name like 'Flight': ")
         os.system(f"docker-compose exec php-fpm php artisan make:model {model_name} -m")
+    elif option == '2.1':
+        model_name = input("Model name like 'Flight': ")
+        os.system(f"docker-compose exec php-fpm php artisan make:model {model_name} -ms")
     elif option == '3':
         model_name = input("Model name like 'Flight': ")
         os.system(f"docker-compose exec php-fpm php artisan make:model {model_name} -f")
