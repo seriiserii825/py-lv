@@ -17,8 +17,8 @@ if not os.path.exists("artisan"):
     exit()
 
 def menu():
-    print("[green]1. Routes")
     print("[green]1. Component")
+    print("[green]1.1 Routes")
     print("[blue]2. Composer")
     print("[green]3. Migration")
     print("[blue]4. Model")
@@ -33,15 +33,15 @@ def menu():
 
     option = input("Select an option: ")
     if option == "1":
-        command = os.system("docker-compose exec php-fpm php artisan route:list")
-        print(command)
-        menu()
-    if option == "1.1":
         conponent_name = input("Enter the component name: ")
         if not conponent_name:
             print("[red]Component name is required")
             menu()
         command = os.system(f"docker-compose exec php-fpm php artisan make:component {conponent_name}")
+        print(command)
+        menu()
+    elif option == "1.1":
+        command = os.system("docker-compose exec php-fpm php artisan route:list")
         print(command)
         menu()
     elif option == "2":
