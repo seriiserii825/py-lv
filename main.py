@@ -76,7 +76,7 @@ def menu():
         dockerFunc()
         menu()
     elif option == "11":
-        os.system("docker-compose exec php-fpm php artisan view:clear && docker-compose exec php-fpm php artisan cache:clear && docker-compose exec php-fpm php artisan config:cache && docker-compose exec php-fpm php artisan route:clear")
+        os.system("docker-compose exec php-fpm php artisan view:clear && docker-compose exec php-fpm php artisan cache:clear && docker-compose exec php-fpm php artisan config:clear && docker-compose exec php-fpm php artisan route:clear")
         menu()
     elif option == "12":
         print("[red]Good bye!")
