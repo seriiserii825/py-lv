@@ -28,7 +28,7 @@ def menu():
     print("[blue]8. Middleware")
     print("[green]9. Artisan")
     print("[green]9.1 Key Generate")
-    print("[green]9.2 Key Generate")
+    print("[green]9.2 Tinker")
     print("[blue]10. Docker")
     print("[green]11. Clear")
     print("[red]12. Exit")
