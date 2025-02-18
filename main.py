@@ -28,6 +28,7 @@ def menu():
     print("[blue]8. Middleware")
     print("[green]9. Artisan")
     print("[green]9.1 Key Generate")
+    print("[green]9.2 Key Generate")
     print("[blue]10. Docker")
     print("[green]11. Clear")
     print("[red]12. Exit")
@@ -71,6 +72,9 @@ def menu():
         menu()
     elif option == "9.1":
         os.system(f"docker-compose exec php-fpm php artisan key:generate")
+        menu()
+    elif option == "9.2":
+        os.system(f"docker-compose exec php-fpm php artisan tinker")
         menu()
     elif option == "10":
         dockerFunc()
