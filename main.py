@@ -11,6 +11,8 @@ from modules.request import requestFunc
 from modules.resourceFunc import resourceFunc
 from rich import print
 
+from modules.viewFunc import viewFunc
+
 ## check for laravel project
 if not os.path.exists("artisan"):
     print("[red]This is not a laravel project")
@@ -19,6 +21,7 @@ if not os.path.exists("artisan"):
 def menu():
     print("[green]1. Component")
     print("[green]1.1 Routes")
+    print("[green]1.2 Views")
     print("[blue]2. Composer")
     print("[green]3. Migration")
     print("[blue]4. Model")
@@ -45,6 +48,9 @@ def menu():
     elif option == "1.1":
         command = os.system("docker-compose exec php-fpm php artisan route:list")
         print(command)
+        menu()
+    elif option == "1.2":
+        viewFunc()
         menu()
     elif option == "2":
         composer()
