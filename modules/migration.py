@@ -9,7 +9,7 @@ def migration():
     print("[green]4. Create_seeder")
     print("[blue]5. Seed")
     print("[green]6. Create_factory")
-    print("[blue]7. Fresh_seed")
+    print("[blue]7. Migrate fresh seed")
     print("[blue]7.1. Fresh(drop tables and re-run all migrations)")
     print("[blue]8. Rollback")
     print("[blue]9. Rollback_step")
