@@ -1,6 +1,7 @@
 import os
 
 from modules.artisan import artisan
+from modules.componentFunc import componentFunc
 from modules.composer import composer
 from modules.controller import controller
 from modules.dockerFunc import dockerFunc
@@ -38,16 +39,7 @@ def menu():
 
     option = input("Select an option: ")
     if option == "1":
-        conponent_name = input("Enter the component name: ")
-        if not conponent_name:
-            print("[red]Component name is required")
-            menu()
-        create_class = input("Create class? (y/n), by default n: ")
-        if create_class == "y":
-            command = os.system(f"docker-compose exec php-fpm php artisan make:component {conponent_name}")
-        else:
-            command = os.system(f"docker-compose exec php-fpm php artisan make:component {conponent_name} --view")
-        print(command)
+        componentFunc()
         menu()
     elif option == "1.1":
         command = os.system("docker-compose exec php-fpm php artisan route:list")
