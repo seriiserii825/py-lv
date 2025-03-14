@@ -42,7 +42,11 @@ def menu():
         if not conponent_name:
             print("[red]Component name is required")
             menu()
-        command = os.system(f"docker-compose exec php-fpm php artisan make:component {conponent_name}")
+        create_class = input("Create class? (y/n), by default n: ")
+        if create_class == "y":
+            command = os.system(f"docker-compose exec php-fpm php artisan make:component {conponent_name}")
+        else:
+            command = os.system(f"docker-compose exec php-fpm php artisan make:component {conponent_name} --view")
         print(command)
         menu()
     elif option == "1.1":
