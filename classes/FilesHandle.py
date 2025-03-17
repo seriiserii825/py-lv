@@ -21,9 +21,11 @@ class FilesHandle:
         print("")
         print(f"[green]List files in ================= {self.basepath}")
 
-    def listDir(self):
+    def listDir(self, dir_path=None):
         print(f"[green]Listing directories in ================ {self.basepath}")
         directories = []
+        if dir_path is not None:
+            self.basepath = dir_path
         with os.scandir(self.basepath) as entries:
             for entry in entries:
                 if entry.is_dir():
