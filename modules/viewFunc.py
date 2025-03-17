@@ -12,12 +12,16 @@ def viewFunc():
     if not os.path.exists(dir_path):
         print("[red]Directory does not exist")
         exit()
+    files_handler.listDir(dir_path)
+    files_handler.listFiles(dir_path)
     second_level = input("[blue]Do you want to create a file in a sub-directory? (y/n):")
     if second_level == 'y':
         files_handler.listDir(dir_path)
         selected_dir = files_handler.createOrChooseDirectory()
         dir_path = dir_path + "/" + selected_dir
         print(f"dir_path: {dir_path}")
+        files_handler.listDir(dir_path)
+        files_handler.listFiles(dir_path)
         if not os.path.exists(dir_path):
             print("[red]Directory does not exist")
             exit()
