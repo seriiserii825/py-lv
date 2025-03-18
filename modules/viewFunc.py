@@ -4,33 +4,40 @@ from rich import print
 from classes.FilesHandle import FilesHandle
 def viewFunc():
     dir_path = 'resources/views'
-    files_handler = FilesHandle(dir_path)
-    files_handler.listDir()
-    selected_dir = files_handler.createOrChooseDirectory()
-    dir_path = files_handler.basepath + "/" + selected_dir
-    print(f"dir_path: {dir_path}")
+    dir_path = getCreateChooseDirPath(dir_path)
     if not os.path.exists(dir_path):
         print("[red]Directory does not exist")
         exit()
-    files_handler.listDir(dir_path)
-    files_handler.listFiles(dir_path)
-    second_level = input("[blue]Do you want to create a file in a sub-directory? (y/n):")
+    second_level = input("[blue]Do you want to choose or create a file in a sub-directory? (y/n):")
     if second_level == 'y':
-        files_handler.listDir(dir_path)
-        selected_dir = files_handler.createOrChooseDirectory()
-        dir_path = dir_path + "/" + selected_dir
-        print(f"dir_path: {dir_path}")
-        files_handler.listDir(dir_path)
-        files_handler.listFiles(dir_path)
+        dir_path = getCreateChooseDirPath(dir_path)
         if not os.path.exists(dir_path):
             print("[red]Directory does not exist")
             exit()
-    files_handler.listFiles(dir_path)
-    print("")
+    third_level = input("[blue]Do you want to choose or create a file in a sub-directory? (y/n):")
+    if third_level == 'y':
+        dir_path = getCreateChooseDirPath(dir_path)
+        if not os.path.exists(dir_path):
+            print("[red]Directory does not exist")
+            exit()
     new_file = input("[blue]Enter file name like show(show.blade.php):")
     if new_file == '':
         print("[red]File name is required")
         exit()
     file_path = dir_path + "/" + new_file + ".blade.php"
-    files_handler.createFile(file_path)
-    files_handler.listFiles(dir_path)
+    if os.path.exists(file_path):
+        print("[red]File already exists")
+        exit()
+    else:
+        os.system("touch " + file_path)
+        print("[green]File created")
+
+def getCreateChooseDirPath(dir_path):
+    files_handler = FilesHandle(dir_path)
+    files_handler.drawTree(dir_path)
+    selected_dir = files_handler.createOrChooseDirectory()
+    full_path = files_handler.basepath + "/" + selected_dir
+    # if full_path has directories inside
+    if os.path.isdir(full_path):
+        files_handler.drawTree(full_path)
+    return full_path

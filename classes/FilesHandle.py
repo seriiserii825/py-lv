@@ -22,7 +22,7 @@ class FilesHandle:
         print(f"[green]List files in ================= {self.basepath}")
 
     def listDir(self, dir_path=None):
-        print(f"[green]Listing directories in ================ {self.basepath}")
+        print(f"[blue]Listing directories in ================ {self.basepath}")
         directories = []
         if dir_path is not None:
             self.basepath = dir_path
@@ -32,8 +32,8 @@ class FilesHandle:
                     directories.append(entry.name)
         directories.sort()
         for directory in directories:
-            print(f"[blue]{directory}")
-        print(f"[green]Listing directories in ================ {self.basepath}")
+            print(f"[yellow]{directory}")
+        print(f"[blue]Listing directories in ================ {self.basepath}")
 
 
     def createOrChooseDirectory(self):
@@ -52,6 +52,10 @@ class FilesHandle:
             selected_dir = self.chooseDir()
             return selected_dir
 
+    def drawTree(self, dir_path=None):
+        if dir_path is not None:
+            self.basepath = dir_path
+        os.system(f"tree {self.basepath}")
 
     def chooseDir(self):
         choosed_dir = []
