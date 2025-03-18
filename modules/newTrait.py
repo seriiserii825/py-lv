@@ -7,7 +7,7 @@ def newTrait():
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
     files_handler = FilesHandle(dir_path)
-    files_handler.listFiles(dir_path)
+    files_handler.drawTree(dir_path)
     print("============================================")
     new_file = input("[blue]Enter file name like show(Trait):")
     if new_file == '':
@@ -15,7 +15,6 @@ def newTrait():
         exit()
     file_path = dir_path + "/" + new_file + ".php"
     files_handler.createFile(file_path)
-    files_handler.listFiles(dir_path)
     trait_content = '''<?php
     namespace App\\Traits;
     
@@ -27,4 +26,4 @@ def newTrait():
 
     files_handler.appendToFile(file_path, trait_content);
     print("[green]Trait created successfully")
-    os.system(f"bat {file_path}")
+    files_handler.drawTree(dir_path)
