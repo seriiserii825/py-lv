@@ -58,7 +58,6 @@ def menu():
     elif menu_entry_index == 2:
         print("[blue]Views")
         viewFunc()
-        menu()
     elif menu_entry_index == 3:
         print("[blue]Trait")
         newTrait()
