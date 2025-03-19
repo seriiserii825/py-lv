@@ -13,7 +13,8 @@ def controller():
 
     option = input("Select an option: ")
 
-    result = getDir()
+    files_handler = FilesHandle('app/Http/Controllers')
+    result = files_handler.getDir()
     selected_dir = result["selected_dir"]
     controller_name = input("Controller name like 'FlightController': ")
     controller_name = selected_dir + "/" + controller_name
@@ -31,18 +32,3 @@ def controller():
         exit()
     else:
         exit()
-
-def getDir():
-    dir_path = 'app/Http/Controllers'
-    files_handler = FilesHandle(dir_path)
-    selected_dir = files_handler.createOrChooseDirectory()
-    dir_path = files_handler.basepath + "/" + selected_dir
-    files_handler.drawTree(dir_path)
-    print(f"dir_path: {dir_path}")
-    if not os.path.exists(dir_path):
-        print("[red]Directory does not exist")
-        exit()
-    return {
-        "dir_path": dir_path,
-        "selected_dir": selected_dir
-    }

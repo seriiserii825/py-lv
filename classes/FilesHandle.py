@@ -100,3 +100,17 @@ class FilesHandle:
         with open(file_path, "w") as f:
             f.write("")
         os.system(f"bat {file_path}")
+
+    def getDir(self):
+        selected_dir = self.createOrChooseDirectory()
+        dir_path = self.basepath + "/" + selected_dir
+        self.drawTree(dir_path)
+        print(f"dir_path: {dir_path}")
+        if not os.path.exists(dir_path):
+            print("[red]Directory does not exist")
+            exit()
+        return {
+            "dir_path": dir_path,
+            "selected_dir": selected_dir
+        }
+
