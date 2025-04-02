@@ -45,62 +45,48 @@ def menu():
     if menu_entry[0] == "Artisan":
         print("[blue]Artisan")
         artisan()
-        menu()
     elif menu_entry[0] == "Clear":
         print("[blue]Clear")
         os.system("docker-compose exec php-fpm php artisan view:clear && docker-compose exec php-fpm php artisan cache:clear && docker-compose exec php-fpm php artisan config:clear && docker-compose exec php-fpm php artisan route:clear && docker-compose exec php-fpm php artisan php artisan optimize:clear")
-        menu()
     elif menu_entry[0] == "Component":
         print("[blue]Component")
         componentFunc()
-        menu()
     elif menu_entry[0] == "Composer":
         print("[blue]Composer")
         composer()
-        menu()
     elif menu_entry[0] == "Controller":
         print("[blue]Controller")
         controller()
-        menu()
     elif menu_entry[0] == "Routes":
         print("[blue]Routes")
         os.system("docker-compose exec php-fpm php artisan route:list")
-        menu()
     elif menu_entry[0] == "Views":
         print("[blue]Views")
         viewFunc()
     elif menu_entry[0] == "Trait":
         print("[blue]Trait")
         newTrait()
-        menu()
     elif menu_entry[0] == "Migration":
         print("[blue]Migration")
         migration()
-        menu()
     elif menu_entry[0] == "Model":
         print("[blue]Model")
         model()
-        menu()
     elif menu_entry[0] == "Request":
         print("[blue]Request")
         requestFunc()
-        menu()
     elif menu_entry[0] == "Resource":
         print("[blue]Resource")
         resourceFunc()
-        menu()
     elif menu_entry[0] == "Middleware":
         print("[blue]Middleware")
         middlewareFunc()
-        menu()
     elif menu_entry[0] == "Key Generate":
         print("[blue]Key Generate")
         os.system(f"docker-compose exec php-fpm php artisan key:generate")
-        menu()
     elif menu_entry[0] == "Docker":
         print("[blue]Docker")
         dockerFunc()
-        menu()
     elif menu_entry[0] == "Exit":
         print("[red]Good bye!")
         exit()
