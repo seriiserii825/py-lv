@@ -25,7 +25,7 @@ menu_items = [
     "Composer",
     "Controller",
     "Docker",
-    "Exit"
+    "Exit",
     "Key Generate",
     "Middleware",
     "Migration",
@@ -42,8 +42,6 @@ def menu():
     fzf = FzfPrompt()
     menu_entry = fzf.prompt(menu_items)
 
-    if menu_entry[0] is None:
-        exit()
     if menu_entry[0] == "Artisan":
         print("[blue]Artisan")
         artisan()
