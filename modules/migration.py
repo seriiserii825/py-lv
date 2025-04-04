@@ -40,15 +40,3 @@ def migration():
         exit()
     else:
         exit()
-
-    # elif option[0] == '4':
-    #     seeder_name = input("Seeder name like 'FlightsTableSeeder': ")
-    #     os.system(f"docker-compose exec php-fpm php artisan make:seeder {seeder_name}")
-    #     migration()
-    # elif option[0] == '5':
-    #     os.system("docker-compose exec php-fpm php artisan db:seed")
-    #     migration()
-    # elif option[0] == '6':
-    #     factory_name = input("Factory name like 'FlightsFactory': ")
-    #     os.system(f"docker-compose exec php-fpm php artisan make:factory {factory_name}")
-    #     migration()

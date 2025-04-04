@@ -5,6 +5,7 @@ from modules.componentFunc import componentFunc
 from modules.composer import composer
 from modules.controller import controller
 from modules.dockerFunc import dockerFunc
+from modules.factory import factory
 from modules.middlewareFunc import middlewareFunc
 from modules.migration import migration
 from modules.model import model
@@ -27,6 +28,7 @@ menu_items = [
     "Controller",
     "Docker",
     "Exit",
+    "Factory",
     "Key Generate",
     "Middleware",
     "Migration",
@@ -59,6 +61,9 @@ def menu():
     elif menu_entry[0] == "Controller":
         print("[blue]Controller")
         controller()
+    elif menu_entry[0] == "Factory":
+        print("[blue]Factory")
+        factory()
     elif menu_entry[0] == "Routes":
         print("[blue]Routes")
         os.system("docker-compose exec php-fpm php artisan route:list")
