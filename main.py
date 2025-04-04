@@ -1,5 +1,4 @@
 import os
-from simple_term_menu import TerminalMenu
 from modules.artisan import artisan
 from modules.componentFunc import componentFunc
 from modules.composer import composer

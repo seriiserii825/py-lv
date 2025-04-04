@@ -12,7 +12,8 @@ def seeeder():
     option = fzf.prompt(menu_items)
 
     if option[0] == 'Create':
-        seeder_name = input("Seeder name like 'FlightsTableSeeder': ")
+        seeder_name = input("Seeder name like 'Flights': ")
+        seeder_name = seeder_name + "Seeder"
         os.system(f"docker-compose exec php-fpm php artisan make:seeder {seeder_name}")
         exit()
     elif option[0] == 'Run':
