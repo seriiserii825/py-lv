@@ -13,6 +13,7 @@ from modules.request import requestFunc
 from modules.resourceFunc import resourceFunc
 from rich import print
 from pyfzf.pyfzf import FzfPrompt
+from modules.seeder import seeeder
 from modules.viewFunc import viewFunc
 ## check for laravel project
 if not os.path.exists("artisan"):
@@ -33,6 +34,7 @@ menu_items = [
     "Request",
     "Resource",
     "Routes",
+    "Seeder",
     "Trait",
     "Views",
 ]
@@ -69,6 +71,9 @@ def menu():
     elif menu_entry[0] == "Migration":
         print("[blue]Migration")
         migration()
+    elif menu_entry[0] == "Seeder":
+        print("[blue]Seeder")
+        seeeder()
     elif menu_entry[0] == "Model":
         print("[blue]Model")
         model()
