@@ -18,12 +18,12 @@ def requestFunc():
     elif option == '2':
         request_name = input("Enter request name like 'Worker': ")
         os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/StoreRequest")
-    elif option == '2':
+    elif option == '3':
         request_name = input("Enter request name like 'Worker': ")
         os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/UpdateRequest")
-    elif option == '2':
+    elif option == '4':
         return True
-    elif option == '2':
+    elif option == '5':
         print("[red]Good bye!")
         exit()
     else:
