@@ -17,11 +17,11 @@ def service():
     files_handle.listFiles(selected_dir)
     namespace = files_handle.filePathToNamespace(file_path)
     layout_code = f"""
-    <?php
-    {namespace}
+<?php
+{namespace}
 
-    class {class_name} {{
+class {class_name} {{
 
-    }}
+}}
     """
     files_handle.appendToFile(file_path, layout_code)
