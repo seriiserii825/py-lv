@@ -103,7 +103,8 @@ class FilesHandle:
                 print("[red]File already exists")
                 exit()
             else:
-                self.createFile(file_path)
+                file_path = self.createFile(file_path)
+                return {"file_path": file_path, "file_name": file_name}
         else:
             print("[red]File name is required")
             exit()
@@ -112,6 +113,7 @@ class FilesHandle:
         with open(file_path, "w") as f:
             f.write("")
         os.system(f"bat {file_path}")
+        return file_path
 
     def getDir(self):
         selected_dir = self.createOrChooseDirectory()
@@ -126,3 +128,13 @@ class FilesHandle:
             "selected_dir": selected_dir
         }
 
+    def filePathToNamespace(self, file_path):
+        # split in to array file path
+        file_path = file_path.split("/")
+        new_file_path = file_path[1::]
+        # remove last element
+        new_file_path = new_file_path[:-1]
+        # join the array with \
+        new_file_path = "\\".join(new_file_path)
+        new_file_path = f"namespace App\\{new_file_path};"
+        return new_file_path
