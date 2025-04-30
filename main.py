@@ -45,7 +45,7 @@ menu_items = [
 
 def menu():
     fzf = FzfPrompt()
-    menu_entry = fzf.prompt(menu_items)
+    menu_entry = fzf.prompt(menu_items, fzf_options='--layout=reverse')
 
     if menu_entry[0] == "Artisan":
         print("[blue]Artisan")
