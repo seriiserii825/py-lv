@@ -103,8 +103,7 @@ class FilesHandle:
                 print("[red]File already exists")
                 exit()
             else:
-                file_path = self.createFile(file_path)
-                return {"file_path": file_path, "file_name": file_name}
+                return file_name
         else:
             print("[red]File name is required")
             exit()
@@ -113,7 +112,6 @@ class FilesHandle:
         with open(file_path, "w") as f:
             f.write("")
         os.system(f"bat {file_path}")
-        return file_path
 
     def getDir(self):
         selected_dir = self.createOrChooseDirectory()

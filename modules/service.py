@@ -1,7 +1,5 @@
 import os
 from classes.FilesHandle import FilesHandle
-# import pyperclip
-# import subprocess
 from pyfzf.pyfzf import FzfPrompt
 fzf = FzfPrompt()
 
@@ -11,10 +9,10 @@ def service():
     selected_dir = files_handle.createOrChooseDirectory()
     selected_dir = os.path.join(service_path, selected_dir)
     files_handle.listFiles(selected_dir)
-    file_object = files_handle.addFileName(selected_dir, 'HomeService')
-    print(f"file_object: {file_object}")
-    file_path = file_object['file_path']
-    class_name = file_object['file_name']
+    file_name = files_handle.addFileName(selected_dir, 'Home, will be HomeService')
+    class_name = f"{file_name}Service"
+    file_path = os.path.join(selected_dir, class_name + ".php")
+    files_handle.createFile(file_path)
     print(f"file_path: {file_path}")
     files_handle.listFiles(selected_dir)
     namespace = files_handle.filePathToNamespace(file_path)
