@@ -6,9 +6,14 @@ from pyfzf.pyfzf import FzfPrompt
 fzf = FzfPrompt()
 
 def service():
-    files_handle = FilesHandle("app/Services")
+    service_path = "app/Services"
+    files_handle = FilesHandle(service_path)
     selected_dir = files_handle.createOrChooseDirectory()
-    print(f"selected_dir: {selected_dir}")
+    selected_dir = os.path.join(service_path, selected_dir)
+    files_handle.listFiles(selected_dir)
+    files_handle.addFileName(selected_dir, 'HomeService')
+    files_handle.listFiles(selected_dir)
+
     #  # Use `find` command to list all files
     # result = subprocess.run(
     #     ## exclude directory vendor

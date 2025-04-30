@@ -35,7 +35,6 @@ class FilesHandle:
             print(f"[yellow]{directory}")
         print(f"[blue]Listing directories in ================ {self.basepath}")
 
-
     def createOrChooseDirectory(self):
         self.listDir()
         select_or_create = selectOne(["Select", "Create"])
@@ -95,6 +94,19 @@ class FilesHandle:
         with open(file_path, "a") as f:
             f.write(text)
         os.system(f"bat {file_path}")
+
+    def addFileName(self, dir_path, placeholder):
+        file_name = input(f"Enter file name like, {placeholder}: ")
+        if file_name != "":
+            file_path = os.path.join(dir_path, file_name)+".php"
+            if os.path.exists(file_path):
+                print("[red]File already exists")
+                exit()
+            else:
+                self.createFile(file_path)
+        else:
+            print("[red]File name is required")
+            exit()
 
     def createFile(self, file_path):
         with open(file_path, "w") as f:
