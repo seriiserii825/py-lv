@@ -13,7 +13,17 @@ def getName():
 
 def requestFunc():
     file_handler = FilesHandle('app/Http/Requests')
-    file_handler.listFiles()
+    result = file_handler.getDir()
+    selected_dir = result["selected_dir"]
+    dir_path = f"app/Http/Requests/{selected_dir}"
+
+    file_handler.listFiles(dir_path)
+
+    request_name = getName()
+    store_name = f"{selected_dir}/{request_name}Request"
+    print(f'store_name: {store_name}')
+    update_name = f"{selected_dir}/{request_name}UpdateRequest"
+    print(f'update_name: {update_name}')
 
     print("[green]1. Both")
     print("[blue]2. Store")
@@ -22,12 +32,6 @@ def requestFunc():
     print("[red]5. Exit")
 
     option = input("Select an option: ")
-
-    request_name = getName()
-    store_name = request_name + "StoreRequest"
-    print(f'store_name: {store_name}')
-    update_name = request_name + "UpdateRequest"
-    print(f'update_name: {update_name}')
 
     if option == '1':
         os.system(f"docker-compose exec php-fpm php artisan make:request {store_name}")
