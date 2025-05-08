@@ -16,8 +16,9 @@ def controller():
     files_handler = FilesHandle('app/Http/Controllers')
     result = files_handler.getDir()
     selected_dir = result["selected_dir"]
-    controller_name = input("Controller name like 'FlightController': ")
+    controller_name = input("Controller name like 'Flight', will be FlightController: ")
     controller_name = selected_dir + "/" + controller_name
+    controller_name = f"{controller_name}Controller"
 
     if option == '1':
         os.system(f"docker-compose exec php-fpm php artisan make:controller {controller_name}")
