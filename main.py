@@ -9,6 +9,7 @@ from modules.middlewareFunc import middlewareFunc
 from modules.migration import migration
 from modules.model import model
 from modules.newTrait import newTrait
+from modules.nodeFunc import nodeFunc
 from modules.request import requestFunc
 from modules.resourceFunc import resourceFunc
 from rich import print
@@ -40,6 +41,7 @@ menu_items = [
     "Service",
     "Trait",
     "Views",
+    "Node"
 ]
 
 
@@ -101,6 +103,9 @@ def menu():
     elif menu_entry[0] == "Docker":
         print("[blue]Docker")
         dockerFunc()
+    elif menu_entry[0] == "Node":
+        print("[blue]Node")
+        nodeFunc()
     elif menu_entry[0] == "Exit":
         print("[red]Good bye!")
         exit()

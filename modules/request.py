@@ -1,8 +1,20 @@
 import os
 from rich import print
 
+from classes.FilesHandle import FilesHandle
+
+def getName():
+    name = input("Enter name like 'Worker, will be Worker': ")
+    if name == "":
+        print("[red]Name cannot be empty")
+        getName()
+    print(f'name: {name}')
+    return name
 
 def requestFunc():
+    file_handler = FilesHandle('app/Http/Requests')
+    file_handler.listFiles()
+
     print("[green]1. Both")
     print("[blue]2. Store")
     print("[green]3. Update")
@@ -11,16 +23,19 @@ def requestFunc():
 
     option = input("Select an option: ")
 
+    request_name = getName()
+    store_name = request_name + "StoreRequest"
+    print(f'store_name: {store_name}')
+    update_name = request_name + "UpdateRequest"
+    print(f'update_name: {update_name}')
+
     if option == '1':
-        request_name = input("Enter request name like 'Worker': ")
-        os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/StoreRequest")
-        os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/UpdateRequest")
+        os.system(f"docker-compose exec php-fpm php artisan make:request {store_name}")
+        os.system(f"docker-compose exec php-fpm php artisan make:request {update_name}")
     elif option == '2':
-        request_name = input("Enter request name like 'Worker': ")
-        os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/StoreRequest")
+        os.system(f"docker-compose exec php-fpm php artisan make:request {store_name}")
     elif option == '3':
-        request_name = input("Enter request name like 'Worker': ")
-        os.system(f"docker-compose exec php-fpm php artisan make:request {request_name}/UpdateRequest")
+        os.system(f"docker-compose exec php-fpm php artisan make:request {update_name}")
     elif option == '4':
         return True
     elif option == '5':
