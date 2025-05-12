@@ -41,7 +41,9 @@ menu_items = [
     "Service",
     "Trait",
     "Views",
-    "Node"
+    "Node",
+    "Encrypt",
+    "Decrypt"
 ]
 
 
@@ -106,6 +108,12 @@ def menu():
     elif menu_entry[0] == "Node":
         print("[blue]Node")
         nodeFunc()
+    elif menu_entry[0] == "Encrypt":
+        print("[blue]Encrypt")
+        os.system("docker-compose exec php-fpm php artisan env:encrypt")
+    elif menu_entry[0] == "Decrypt":
+        print("[blue]Decrypt")
+        os.system("docker-compose exec php-fpm php artisan env:decrypt")
     elif menu_entry[0] == "Exit":
         print("[red]Good bye!")
         exit()
