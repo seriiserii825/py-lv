@@ -12,6 +12,9 @@ def getName():
     return name
 
 def requestFunc():
+    dir_path = 'app/Http/Requests'
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
     file_handler = FilesHandle('app/Http/Requests')
     result = file_handler.getDir()
     selected_dir = result["selected_dir"]

@@ -5,6 +5,8 @@ fzf = FzfPrompt()
 
 def service():
     service_path = "app/Services"
+    if not os.path.exists(service_path):
+        os.makedirs(service_path)
     files_handle = FilesHandle(service_path)
     selected_dir = files_handle.createOrChooseDirectory()
     selected_dir = os.path.join(service_path, selected_dir)
