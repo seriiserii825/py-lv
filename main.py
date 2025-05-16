@@ -110,7 +110,7 @@ def menu():
         nodeFunc()
     elif menu_entry[0] == "Encrypt":
         print("[blue]Encrypt")
-        os.system("docker-compose exec php-fpm php artisan env:encrypt")
+        os.system("docker-compose exec php-fpm php artisan env:encrypt -n")
     elif menu_entry[0] == "Decrypt":
         print("[blue]Decrypt")
         os.system("docker-compose exec php-fpm php artisan env:decrypt")
