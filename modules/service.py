@@ -1,7 +1,11 @@
 import os
-from classes.FilesHandle import FilesHandle
+
 from pyfzf.pyfzf import FzfPrompt
+
+from classes.FilesHandle import FilesHandle
+
 fzf = FzfPrompt()
+
 
 def service():
     service_path = "app/Services"
@@ -11,7 +15,7 @@ def service():
     selected_dir = files_handle.createOrChooseDirectory()
     selected_dir = os.path.join(service_path, selected_dir)
     files_handle.listFiles(selected_dir)
-    file_name = files_handle.addFileName(selected_dir, 'Home, will be HomeService')
+    file_name = files_handle.addFileName(selected_dir, "Home, will be HomeService")
     class_name = f"{file_name}Service"
     file_path = os.path.join(selected_dir, class_name + ".php")
     files_handle.createFile(file_path)

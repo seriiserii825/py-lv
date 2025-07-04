@@ -1,4 +1,8 @@
 import os
+
+from pyfzf.pyfzf import FzfPrompt
+from rich import print
+
 from modules.artisan import artisan
 from modules.componentFunc import componentFunc
 from modules.composer import composer
@@ -12,12 +16,11 @@ from modules.newTrait import newTrait
 from modules.nodeFunc import nodeFunc
 from modules.request import requestFunc
 from modules.resourceFunc import resourceFunc
-from rich import print
-from pyfzf.pyfzf import FzfPrompt
 from modules.seeder import seeeder
 from modules.service import service
 from modules.viewFunc import viewFunc
-## check for laravel project
+
+# check for laravel project
 if not os.path.exists("artisan"):
     print("[red]This is not a laravel project")
     exit()
@@ -47,14 +50,20 @@ menu_items = [
 
 def menu():
     fzf = FzfPrompt()
-    menu_entry = fzf.prompt(menu_items, fzf_options='--layout=reverse')
+    menu_entry = fzf.prompt(menu_items, fzf_options="--layout=reverse")
 
     if menu_entry[0] == "Artisan":
         print("[blue]Artisan")
         artisan()
     elif menu_entry[0] == "Clear":
         print("[blue]Clear")
-        os.system("docker-compose exec php-fpm php artisan view:clear && docker-compose exec php-fpm php artisan cache:clear && docker-compose exec php-fpm php artisan config:clear && docker-compose exec php-fpm php artisan route:clear && docker-compose exec php-fpm php artisan php artisan optimize:clear")
+        os.system(
+            "docker-compose exec php-fpm php artisan view:clear \
+                    && docker-compose exec php-fpm php artisan cache:clear \
+                    && docker-compose exec php-fpm php artisan config:clear \
+                    && docker-compose exec php-fpm php artisan route:clear \
+                    && docker-compose exec php-fpm php artisan optimize:clear"
+        )
     elif menu_entry[0] == "Component":
         print("[blue]Component")
         componentFunc()
@@ -109,5 +118,7 @@ def menu():
     elif menu_entry[0] == "Exit":
         print("[red]Good bye!")
         exit()
+
+
 if __name__ == "__main__":
     menu()
