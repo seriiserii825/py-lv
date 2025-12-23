@@ -14,22 +14,22 @@ def composer():
 
     option = input("Select an option: ")
     if option == "1":
-        os.system("docker-compose exec php-fpm composer install")
+        os.system("docker compose exec php-fpm composer install")
         composer()
     elif option == "2":
         package = input("Enter the package name: ")
-        os.system(f"docker-compose exec php-fpm composer require {package}")
+        os.system(f"docker compose exec php-fpm composer require {package}")
         composer()
     elif option == "3":
         package = input("Enter the package name: ")
-        os.system(f"docker-compose exec php-fpm composer update {package}")
+        os.system(f"docker compose exec php-fpm composer update {package}")
         composer()
     elif option == "4":
         package = input("Enter the package name: ")
-        os.system(f"docker-compose exec php-fpm composer require {package}")
+        os.system(f"docker compose exec php-fpm composer require {package}")
         composer()
     elif option == "5":
-        os.system("docker-compose exec php-fpm composer dump-autoload")
+        os.system("docker compose exec php-fpm composer dump-autoload")
         composer()
     elif option == "6":
         return True

@@ -15,9 +15,9 @@ def nodeFunc():
     if menu_entry[0] == "Exec":
         print("[blue]Node Exec")
         command = input("Enter command: ")
-        os.system(f"docker-compose exec node {command}")
+        os.system(f"docker compose exec node {command}")
 
     if menu_entry[0] == "Install":
         print("[blue]Node Install")
         command = input("Enter package name: ")
-        os.system(f"docker-compose exec node npm install {command}")
+        os.system(f"docker compose exec node npm install {command}")

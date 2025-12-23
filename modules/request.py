@@ -40,12 +40,12 @@ def requestFunc():
     option = input("Select an option: ")
 
     if option == "1":
-        os.system(f"docker-compose exec php-fpm php artisan make:request {store_name}")
-        os.system(f"docker-compose exec php-fpm php artisan make:request {update_name}")
+        os.system(f"docker compose exec php-fpm php artisan make:request {store_name}")
+        os.system(f"docker compose exec php-fpm php artisan make:request {update_name}")
     elif option == "2":
-        os.system(f"docker-compose exec php-fpm php artisan make:request {store_name}")
+        os.system(f"docker compose exec php-fpm php artisan make:request {store_name}")
     elif option == "3":
-        os.system(f"docker-compose exec php-fpm php artisan make:request {update_name}")
+        os.system(f"docker compose exec php-fpm php artisan make:request {update_name}")
     elif option == "4":
         return True
     elif option == "5":

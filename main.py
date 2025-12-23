@@ -58,11 +58,11 @@ def menu():
     elif menu_entry[0] == "Clear":
         print("[blue]Clear")
         os.system(
-            "docker-compose exec php-fpm php artisan view:clear \
-                    && docker-compose exec php-fpm php artisan cache:clear \
-                    && docker-compose exec php-fpm php artisan config:clear \
-                    && docker-compose exec php-fpm php artisan route:clear \
-                    && docker-compose exec php-fpm php artisan optimize:clear"
+            "docker compose exec php-fpm php artisan view:clear \
+                    && docker compose exec php-fpm php artisan cache:clear \
+                    && docker compose exec php-fpm php artisan config:clear \
+                    && docker compose exec php-fpm php artisan route:clear \
+                    && docker compose exec php-fpm php artisan optimize:clear"
         )
     elif menu_entry[0] == "Component":
         print("[blue]Component")
@@ -78,7 +78,7 @@ def menu():
         factory()
     elif menu_entry[0] == "Routes":
         print("[blue]Routes")
-        os.system("docker-compose exec php-fpm php artisan route:list")
+        os.system("docker compose exec php-fpm php artisan route:list")
     elif menu_entry[0] == "Views":
         print("[blue]Views")
         viewFunc()
@@ -108,7 +108,7 @@ def menu():
         middlewareFunc()
     elif menu_entry[0] == "Key Generate":
         print("[blue]Key Generate")
-        os.system(f"docker-compose exec php-fpm php artisan key:generate")
+        os.system(f"docker compose exec php-fpm php artisan key:generate")
     elif menu_entry[0] == "Docker":
         print("[blue]Docker")
         dockerFunc()

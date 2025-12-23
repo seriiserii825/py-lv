@@ -23,16 +23,16 @@ def controller():
 
     if option == "1":
         os.system(
-            f"docker-compose exec php-fpm php artisan make:controller {controller_name}"
+            f"docker compose exec php-fpm php artisan make:controller {controller_name}"
         )
     elif option == "2":
         os.system(
-            f"docker-compose exec php-fpm php artisan make:controller {controller_name}\
+            f"docker compose exec php-fpm php artisan make:controller {controller_name}\
             --resource"
         )
     elif option == "3":
         os.system(
-            f"docker-compose exec php-fpm php artisan make:controller {controller_name}\
+            f"docker compose exec php-fpm php artisan make:controller {controller_name}\
             --api"
         )
     elif option == "4":

@@ -13,14 +13,14 @@ def dockerFunc():
     option = input("Select an option: ")
 
     if option == "1":
-        os.system("docker-compose ps")
+        os.system("docker compose ps")
         dockerFunc()
     elif option == "2":
         container = input("Enter container name: ")
-        os.system(f"docker-compose stop {container}")
-        os.system(f"docker-compose rm -f {container}")
-        os.system(f"docker-compose build {container}")
-        os.system(f"docker-compose up -d {container}")
+        os.system(f"docker compose stop {container}")
+        os.system(f"docker compose rm -f {container}")
+        os.system(f"docker compose build {container}")
+        os.system(f"docker compose up -d {container}")
         dockerFunc()
     elif option == "3":
         os.system("docker images")

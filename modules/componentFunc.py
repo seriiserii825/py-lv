@@ -26,11 +26,11 @@ def createComponent(with_class=False, dir="", dir_path=""):
         exit()
     if with_class:
         os.system(
-            f"docker-compose exec php-fpm php artisan make:component {component_name}"
+            f"docker compose exec php-fpm php artisan make:component {component_name}"
         )
     else:
         os.system(
-            f"docker-compose exec\
+            f"docker compose exec\
             php-fpm php artisan make:component {component_name} --view"
         )
     files_handler = FilesHandle(dir_path)

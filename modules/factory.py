@@ -13,7 +13,7 @@ def factory():
         factory_name = input("Factory name like 'Flights': ")
         factory_name = factory_name + "Factory"
         os.system(
-            f"docker-compose exec php-fpm php artisan make:factory {factory_name}"
+            f"docker compose exec php-fpm php artisan make:factory {factory_name}"
         )
         exit()
     elif option[0] == "Exit":
