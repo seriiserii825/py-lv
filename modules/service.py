@@ -1,10 +1,6 @@
 import os
 
-from pyfzf.pyfzf import FzfPrompt
-
 from classes.FilesHandle import FilesHandle
-
-fzf = FzfPrompt()
 
 
 def service():
